@@ -1,0 +1,44 @@
+<head>
+
+    <title>Ship List</title>
+    <style> 
+    .topline {background: rgba(80, 130, 150, 1); height: 120px;}   
+    .shipdata {width: 100%; border:2px solid rgba(80, 130, 150, 1);}
+    td {height:25px; text-align: center; border:2px solid rgba(80, 130, 150, 1); color:rgba(80, 130, 150, 1)}
+    th {height:50px; text-align: center; border:2px solid rgba(80, 130, 150, 1); color:rgba(80, 130, 150, 1)}
+    </style>
+               
+
+</head>
+<body>
+
+<div class='topline'></div>
+
+<table class='shipdata'>
+  <tr>
+    <th>NAME</th>
+    <th>IMO Number</th>
+    <th>MAX SPEED</th>      
+    <th>FULL CAPACITY</th>   
+    <th>BOG GUARANTEE</th>
+    <th>MMSI NUMBER</th>        
+  </tr>
+
+  {% if ship_list %}
+    {% for ship in ship_list %}
+         <tr>   
+            <td>{{ ship.name }}</td>
+            <td>{{ ship.imo_number }}</td>
+            <td>{{ ship.max_speed }}</td>     
+            <td>{{ ship.full_capacity }}</td>  
+            <td>{{ ship.bog_guarantee }}</td>
+            <td>{{ ship.mmsi_number }}</td>       
+        <tr>
+    {% endfor %}
+        
+{% else %}
+    <p>No ship are available.</p>
+{% endif %}
+</table>
+
+</body>

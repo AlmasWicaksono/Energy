@@ -1,0 +1,15 @@
+CLASSIFICATION_SOCIETIES = (
+('ABS', 'ABS (American Bureau of Shipping)',),  
+('BV', 'BV',),  
+('CCS', 'CCS',), 
+('CCS', 'CCS',),
+('CRS', 'CRS',), 
+('DNV GL', 'DNV GL',),
+('IRS', 'IRS',),
+('KR', 'KR',),
+('LR', 'LR',),
+('NK', 'NK',),
+('PRS', 'PRS',),
+('RINA', 'RINA',),
+('RS', 'RS',),
+)
