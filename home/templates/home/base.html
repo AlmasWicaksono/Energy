@@ -1,11 +1,145 @@
-<head>
+<!DOCTYPE html>
 
+<html lang="en">
+
+<head>
+    {% block title %}
+    <title>AlmasWicaksono</title>
+    {% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <style>
+        /* Sidebar */
+        #sidebar-wrapper {
+            z-index: 1;
+            position: absolute;
+            width: 0;
+            height: 100%;
+            overflow-y: hidden;
+            background: #dc3545;
+            opacity: 1;
+        }
+
+        /* Always take up entire screen */
+        #page-content-wrapper {
+            width: 100%;
+            position: absolute;
+            padding: 15px;
+        }
+
+
+        /* Change with of sidebar from 0 to 250px */
+        #wrapper.menuDisplayed #sidebar-wrapper {
+            width: 100px;
+        }
+
+        #wrapper.menuDisplayed #menu-toggle {
+            padding-left:20px;
+        }
+
+        /* Since we added left padding, we need to shrink the width by 250px */
+        #wrapper.menuDisplayed #page-content-wrapper {
+            padding-left: 100px;
+        }
+
+
+        /* Sidebar styling - the entire ul list */
+        .sidebar-nav {
+            padding: 0;
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            text-indent: 20px;
+            line-height: 40px;
+        }
+
+        .sidebar-nav li a {
+            display: block;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .sidebar-nav li a:hover {
+            background: #aa2500;
+        }
+    </style>
 </head>
 
 <body>
-This is base
 
-{% block body %}
-{% endblock %}
+<!-- Top Navigation Bar -->
+<nav class="navbar navbar-expand-sm navbar-light bg-danger">
+  <!--Brand-->
+  <button type="button" class="btn btn-outline-light" id="menu-toggle" style="margin-right: 10px; padding:0;"> < </button>
+  <a class="navbar-brand" href="http://almaswicaksono.pythonanywhere.com/" style="color: white" >AWO</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!--Colapse Navbar-->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active"><a class="nav-link" href="#" style="color: white">Link</a></li>
+      <li class="nav-item active"><a class="nav-link" href="#" style="color: white">Link</a></li>
+      <li class="nav-item active"><a class="nav-link" href="#" style="color: white">Link</a></li>
+    </ul>
+    <form class="form-inline my-2 my-sm-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-light my-2 my-sm-0" style="color: white" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<!-- Side Navigation Bar -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+
+            <!-- Real Content -->
+            {% block body %}
+            {% endblock %}
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Sidebar Layouts are Cool</h1>
+                    <p>I love apple pie. I love apple pie. I love apple pie. I love apple pie. I love apple pie.
+                        I love apple pie. I love apple pie. I love apple pie. I love apple pie. I love apple pie.
+                        I love apple pie. I love apple pie. I love apple pie. I love apple pie. I love apple pie.
+                        I love apple pie. I love apple pie. I love apple pie. I love apple pie. I love apple pie.
+                        I love apple pie. I love apple pie. I love apple pie. I love apple pie. I love apple pie. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Menu toggle script -->
+<script>
+    $("#menu-toggle").click( function (e){
+        e.preventDefault();
+        $("#wrapper").toggleClass("menuDisplayed");
+    });
+</script>
+
+
 
 </body>
+
+</html>

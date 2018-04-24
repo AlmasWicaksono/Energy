@@ -125,7 +125,7 @@ table {
 body {
   font: 12px/20px 'Lucida Grande', Verdana, sans-serif;
   color: #404040;
-  background: rgba(255, 0, 0, 1);
+  background: #dc3545;
 }
 
 input, textarea, select, label {
@@ -156,7 +156,7 @@ input, textarea, select, label {
   margin-bottom: 20px;
   font-size: 16px;
   font-weight: bold;
-  color: white;
+  color: #dc3545;
   text-align: center;
   text-shadow: 0 -1px rgba(0, 0, 0, 0.4);
 }
@@ -169,7 +169,7 @@ input, textarea, select, label {
   padding: 0 9px;
   color: white;
   text-shadow: 0 1px black;
-  background: #2b3e5d;
+  background: #dc3545;
   border: 1px solid #15243b;
   border-top-color: #0d1827;
   border-radius: 4px;
@@ -214,7 +214,7 @@ input, textarea, select, label {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 0 7px rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.15);
 }
 .login-submit:active {
-  background: #a4c2f3;
+  background: #dc3545;
   -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px rgba(255, 255, 255, 0.1);
 }

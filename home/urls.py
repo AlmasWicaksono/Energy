@@ -7,5 +7,5 @@ app_name = ''
 urlpatterns = [
         #
         path('', Home.as_view(), name='home'),
-        path('login', login, {'template_name':'home/login.html'} ), 
+        path('login', login, {'template_name':'home/login.html'} ),
         ]

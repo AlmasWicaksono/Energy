@@ -7,4 +7,6 @@ from django.views import generic, View
 
 class Home(TemplateView):
     template_name = 'home/home.html'
-    
+
+
+
