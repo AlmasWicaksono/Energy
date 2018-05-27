@@ -73,6 +73,7 @@
 <body>
 
 <!-- Top Navigation Bar -->
+{{ User_Name }}
 <nav class="navbar navbar-expand-sm navbar-light bg-danger">
   <!--Brand-->
   <button type="button" class="btn btn-outline-light" id="menu-toggle" style="margin-right: 10px; padding:0;"> < </button>
@@ -84,7 +85,7 @@
   <!--Colapse Navbar-->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active"><a class="nav-link" href="#" style="color: white">Link</a></li>
+      <li class="nav-item active"><a class="nav-link" href="#" style="color: white">{{ User_Name }}</a></li>
       <li class="nav-item active"><a class="nav-link" href="#" style="color: white">Link</a></li>
       <li class="nav-item active"><a class="nav-link" href="#" style="color: white">Link</a></li>
     </ul>
@@ -92,6 +93,9 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-light my-2 my-sm-0" style="color: white" type="submit">Search</button>
     </form>
+    <ul class="navbar-nav mr-0 mt-2 mt-lg-0">
+      <li class="nav-item active"><a class="nav-link" href="logout" style="color: white">logout</a></li>
+    </ul>
   </div>
 </nav>
 

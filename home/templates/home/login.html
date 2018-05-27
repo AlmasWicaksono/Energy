@@ -8,12 +8,15 @@
 </head>
 
 <body>
-  <form action="index.html" class="login">
+<form method="post" action="login" class="login">
+    {% csrf_token %}
     <h1>WELCOME</h1>
-    <input type="email" name="email" class="login-input" placeholder="Email Address" autofocus>
+    <input type="username" name="username" class="login-input" placeholder="User Name" autofocus>
     <input type="password" name="password" class="login-input" placeholder="Password">
-    <input type="submit" value="Login" class="login-submit">
-    <p class="login-help"><a href="index.html">Forgot password?</a></p>
-  </form>
+    <input type="submit" value="login" class="login-submit">
+    <p class="login-help"><a href="">Forgot password?</a></p>
+ </form>
+
 </body>
 </html>
+
