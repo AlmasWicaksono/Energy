@@ -1,0 +1,23 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+    <title>Ship Home</title>
+{% endblock %}
+
+{% block body %}
+
+<head>
+
+    <style>
+    .shipdata {width: 100%; border:2px solid #ffd700;}
+    td {height:25px; text-align: center; border:2px solid #ffd700; color:rgba(80, 130, 150, 1)}
+    th {height:50px; text-align: center; border:2px solid #ffd700; color:rgba(80, 130, 150, 1)}
+    </style>
+
+</head>
+<body>
+
+{% include 'ships/shipsearch.html' %}
+
+</body>
+{% endblock %}

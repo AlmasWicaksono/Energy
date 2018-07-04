@@ -13,7 +13,7 @@ from django.urls import path
 from django.contrib.auth.views import LoginView, LogoutView
 from home.views import Home, test
 
-app_name = ''
+app_name = 'home'
 urlpatterns = [
         #
         path('', Home.as_view(), name='home'),

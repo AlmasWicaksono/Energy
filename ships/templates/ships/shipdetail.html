@@ -1,0 +1,32 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+    <title>{{ ship.name }}</title>
+{% endblock %}
+
+{% block body %}
+<head>
+
+    <!--
+    .topline {background: #0d0d0d; height: 120px; border:2px solid #ffc107;}
+    .shipdata {width: 100%; border:2px solid #ffc107;}
+    td {height:25px; text-align: center; border:2px solid #ffc107; color:rgba(80, 130, 150, 1)}
+    -->
+
+    <style>
+    th {color:#ffc107;}
+    </style>
+
+</head>
+<body>
+
+{% include 'ships/shipsearch.html' %}
+
+            {{ ship.name }}
+            {{ ship.name.verbose_name }}
+            {{ ship.imo_number }}
+            {{ ship.full_capacity }}
+
+
+</body>
+{% endblock %}

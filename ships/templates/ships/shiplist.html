@@ -1,44 +1,54 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+    <title>Ship List</title>
+{% endblock %}
+
+{% block body %}
 <head>
 
-    <title>Ship List</title>
-    <style> 
-    .topline {background: rgba(80, 130, 150, 1); height: 120px;}   
-    .shipdata {width: 100%; border:2px solid rgba(80, 130, 150, 1);}
-    td {height:25px; text-align: center; border:2px solid rgba(80, 130, 150, 1); color:rgba(80, 130, 150, 1)}
-    th {height:50px; text-align: center; border:2px solid rgba(80, 130, 150, 1); color:rgba(80, 130, 150, 1)}
+    <!--
+    .topline {background: #0d0d0d; height: 120px; border:2px solid #ffc107;}
+    .shipdata {width: 100%; border:2px solid #ffc107;}
+    td {height:25px; text-align: center; border:2px solid #ffc107; color:rgba(80, 130, 150, 1)}
+    -->
+
+    <style>
+    th {color:#ffc107;}
     </style>
-               
 
 </head>
 <body>
 
-<div class='topline'></div>
+{% include 'ships/shipsearch.html' %}
 
-<table class='shipdata'>
-  <tr>
-    <th>NAME</th>
-    <th>IMO Number</th>
-    <th>MAX SPEED</th>      
-    <th>FULL CAPACITY</th>   
-    <th>BOG GUARANTEE</th>
-    <th>MMSI NUMBER</th>        
-  </tr>
-
+<table class='table text-center'>
+  <thead style="background-color: #0d0d0d;">
+      <tr>
+        <th class='align-middle'>NAME</th>
+        <th class='align-middle'>IMO Number</th>
+        <th class='align-middle'>CAPACITY</th>
+      </tr>
+  </thead>
+  <tbody>
   {% if ship_list %}
     {% for ship in ship_list %}
-         <tr>   
-            <td>{{ ship.name }}</td>
+         <tr>
+            <td><a href="{% url 'ships:shipdetail' ship.id %}" class="card-link">{{ ship.name }}</a></td>
             <td>{{ ship.imo_number }}</td>
-            <td>{{ ship.max_speed }}</td>     
-            <td>{{ ship.full_capacity }}</td>  
-            <td>{{ ship.bog_guarantee }}</td>
-            <td>{{ ship.mmsi_number }}</td>       
-        <tr>
+            <td>{{ ship.full_capacity }}</td>
+         <tr>
     {% endfor %}
-        
-{% else %}
-    <p>No ship are available.</p>
-{% endif %}
+
+    {% else %}
+         <tr>
+            <td>No ship are available</td>
+            <td>No ship are available</td>
+            <td>No ship are available</td>
+         <tr>
+    {% endif %}
+  </tbody>
 </table>
 
 </body>
+{% endblock %}

@@ -1,0 +1,13 @@
+<body>
+
+    <div style="background-color: #0d0d0d;width:100%;" class="container-fluid rounded pl-1 pr-1">
+        <div class="form-group">
+        <form method="post" action="{% url 'ships:shiplist' %}" class="form-inline text-warning">
+            {% csrf_token %}
+            <input style="width:280px;" type="text" name="ShipToBeSearch" placeholder="Search by Ship Name or IMO Number" class="form-control rounded mr-1 mt-1 mb-1 pl-1 pr-1" required>
+            <button type="submit" class="btn btn-warning border border-warning text-warning mt-1 mb-1" style="background-color:#0d0d0d;">SEARCH</button>
+        </form>
+        </div>
+    </div>
+
+</body>
