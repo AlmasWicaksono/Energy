@@ -248,4 +248,15 @@ COUNTRIES = (
     ('YE', 'Yemen',),
     ('ZM', 'Zambia',),
     ('ZW', 'Zimbabwe',),
+
 )
+def Convert(COUNTRIES):
+    result={}
+    for x in COUNTRIES:
+        if "," in x[1]:
+            z = x[1].split(",", maxsplit=1)
+            result[x[0]]= str(z[1]).strip()+" "+str(z[0]).strip()
+        else:
+            result[x[0]]=x[1]
+    return result
+COUNTRIES_DICT = Convert(COUNTRIES)

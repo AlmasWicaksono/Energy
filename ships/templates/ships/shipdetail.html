@@ -22,10 +22,17 @@
 
 {% include 'ships/shipsearch.html' %}
 
-            {{ ship.name }}
-            {{ ship.name.verbose_name }}
-            {{ ship.imo_number }}
-            {{ ship.full_capacity }}
+    <table class="table table-borderless">
+      <tbody>
+        {% for x in ship %}
+        <tr>
+        {% for y in x %}
+          <td>{{ y }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 
 
 </body>

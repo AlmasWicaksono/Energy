@@ -4,8 +4,8 @@ from django.urls import reverse
 from django.views import generic
 from django.http import Http404
 from django.utils.translation import gettext as _
-
 from .models import Ship
+from reff.countries import COUNTRIES_DICT
 
 def ShipHome(request):
     return render(request, "ships/shiphome.html", )
@@ -56,6 +56,59 @@ class ShipDetail(generic.DetailView):
         context = self.get_context_data(object=self.object)
         context['User_Name']= self.request.user.get_username()
         return self.render_to_response(context)
+
+    def get_context_data(self, **kwargs):
+        """Insert the single object into the context dict."""
+        context = {}
+        if self.object:
+            context['object'] = self.object
+            context_object_name = self.get_context_object_name(self.object)
+            if context_object_name:
+                """ Creating list "heading" and dictionary "content_edit" for further process,
+                if any "heading" change (add, replace, delete) should be edited from here. """
+                heading= [
+                    "name",
+                    "imo_number",
+                    "max_speed",
+                    "full_capacity",
+                    "bog_guarantee",
+                    "mmsi_number",
+                    "ship_operator",
+                    "ship_owner",
+                    "ship_insurer",
+                    "ship_builder",
+                    "ship_build_country",
+                    "ship_class",
+                    "ship_flag",
+                    "status",
+                    "power",
+                    "cargo_containment",
+                    "horse_power",
+                    "price",
+                    "no_of_tanks",
+                    "avg_boil_off_rate"
+                    ]
+                content_edit = {
+                    "max_speed":'{} knot'.format(getattr(self.object, "max_speed")),
+                    "full_capacity":'{:,} m3'.format(getattr(self.object, "full_capacity")),
+                    "bog_guarantee":'{:.2%} per day'.format(getattr(self.object, "bog_guarantee")/100),
+                    "ship_build_country":COUNTRIES_DICT[getattr(self.object, "ship_build_country")],
+                    "ship_flag":COUNTRIES_DICT[getattr(self.object, "ship_flag")],
+                    "horse_power":'{} HP'.format(getattr(self.object, "horse_power")),
+                    "price":'{} million USD'.format(getattr(self.object, "price")),
+                    "avg_boil_off_rate":'{:.2%} per day'.format(getattr(self.object, "avg_boil_off_rate")/100),
+                    }
+
+                """Creating context[ship] as a List because we design the template to render a list"""
+                context[context_object_name] = []
+                for x in heading:
+                    if x in content_edit:
+                        context[context_object_name].append([(x.upper()).replace("_"," "), content_edit[x]])
+                    else:
+                        context[context_object_name].append([(x.upper()).replace("_"," "), getattr(self.object, x)])
+        context.update(kwargs)
+        return super().get_context_data(**context)
+
 
 
 
