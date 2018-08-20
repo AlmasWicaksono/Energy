@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class shipsConfig(AppConfig):
+class ShipsConfig(AppConfig):
     name = 'ships'
