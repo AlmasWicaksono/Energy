@@ -17,9 +17,9 @@ class Terminal(models.Model):
 
 class Jetty(models.Model):
     name            = models.CharField(default='', max_length=100, help_text='Name of the Jetty')
-    max_ship_length = models.DecimalField(decimal_places=2, null=True, help_text='Maximum Length of Vessel that can berth in meters')
-    min_ship_length = models.DecimalField(decimal_places=2, null=True, help_text='Minimum Length of Vessel that can berth in meters')
-    max_ship_draft  = models.DecimalField(decimal_places=2, null=True, help_text='Maximum Draft Allowed for a Vessel Berth on this Jetty in meters')
+    max_ship_length = models.DecimalField(max_digits=20, decimal_places=2, null=True, help_text='Maximum Length of Vessel that can berth in meters')
+    min_ship_length = models.DecimalField(max_digits=20, decimal_places=2, null=True, help_text='Minimum Length of Vessel that can berth in meters')
+    max_ship_draft  = models.DecimalField(max_digits=20, decimal_places=2, null=True, help_text='Maximum Draft Allowed for a Vessel Berth on this Jetty in meters')
 
     #Relationship Field
     terminal        = models.ManyToManyField(Terminal, help_text='Terminal that it served')
