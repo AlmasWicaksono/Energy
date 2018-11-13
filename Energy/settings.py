@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'portfolios.apps.PortfoliosConfig',
     'shipments.apps.ShipmentsConfig',
     'storages.apps.StoragesConfig',
-    'liquefaction_facilities.apps.Liquefaction_facilitiesConfig',
+    'liquefaction_facilities.apps.Liquefaction_FacilitiesConfig',
 ]
 
 MIDDLEWARE = [
